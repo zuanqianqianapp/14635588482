@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -39,13 +39,13 @@
     function checkPlatform() {
 
         if (/android/i.test(navigator.userAgent)) {
-            $('.down-btn').attr('href', 'http://android.gpkdemo8.com/apk/HM001-02-APK.apk');
+            $('.down-btn').attr('href', 'https://bmob-cdn-16052.bmobcloud.com/2019/07/07/30676f5f40eba6cd8048a7f57ee0b3aa.apk');
             $('.introduce-img').css('display', 'none');
             console.log(2)
         }
 
         if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
-            $('.down-btn').attr('href', 'itms-services:///?action=download-manifest&url=https://raw.githubusercontent.com/zuanqianqianapp/14635588482/master/PropertyList.plist');
+            $('.down-btn').attr('href', 'https://weinisi.app2.cn');
             console.log(1)
         }
     }
@@ -72,35 +72,39 @@
     };
 
     if (browser.versions.weixin) {
-        if (browser.versions.ios || browser.versions.iphone || browser.versions.ipad) {
-            $('#ios').show();
+        if(browser.versions.ios||browser.versions.iphone||browser.versions.ipad){
+            $('#az').show();
             $('#screen').show();
 
-        } else {
+        }
+        else{
             $('#az').show();
             $('#screen').show();
         }
-    } else {
-        if (browser.versions.android) {
-            var urlParams = new UrlParameters();
-            if (typeof urlParams != "undefined" && ((urlParams.tableId && 0 != urlParams.tableId) || (urlParams.opType && 0 != urlParams.opType))) {
-                openApp(urlParams.AppName, urlParams.tableId, urlParams.refresh);
+    }
+    else{
+        if(browser.versions.android){
+            var urlParams=new UrlParameters();
+            if(typeof urlParams!="undefined" && ((urlParams.tableId && 0 != urlParams.tableId) || (urlParams.opType && 0 != urlParams.opType))){
+                openApp(urlParams.AppName,urlParams.tableId,urlParams.refresh);
             }
             $('#az').show();
             $('#screen').show();
-            $('.introduce-img').css('display', 'none');
-        } else if (browser.versions.ios || browser.versions.iphone || browser.versions.ipad) {
-            var urlParams = new UrlParameters();
-            if (typeof urlParams != "undefined" && ((urlParams.tableId && 0 != urlParams.tableId) || (urlParams.opType && 0 != urlParams.opType))) {
-                openApp(urlParams.AppName, urlParams.tableId, urlParams.refresh);
+            $('.introduce-img').css('display','none');
+        }
+        else if(browser.versions.ios||browser.versions.iphone||browser.versions.ipad){
+            var urlParams=new UrlParameters();
+            if(typeof urlParams!="undefined" && ((urlParams.tableId && 0 != urlParams.tableId) || (urlParams.opType && 0 != urlParams.opType))){
+                openApp(urlParams.AppName,urlParams.tableId,urlParams.refresh);
             }
             $('#ios').show();
             $('#screen').show();
 
-        } else {
+        }
+        else{
             $('#az').show();
             $('#screen').show();
-            $('.introduce-img').css('display', 'none');
+            $('.introduce-img').css('display','none');
         }
     }
 
